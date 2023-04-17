@@ -1,9 +1,8 @@
 import Button from "@mui/material/Button";
-import * as React from "react";
-import Checkbox from "@mui/material/Checkbox";
-import { Status, Task } from "../../types/Task";
-import { updateTaskStatus } from "../../redux/reducers/task";
-import { useAppDispatch } from "../../redux/hooks";
+
+import { Status, Task } from "../../../../../types/Task";
+import { updateTaskStatus } from "../../../../../redux/reducers/task";
+import { useAppDispatch } from "../../../../../hooks/hooks";
 
 export default function StartButton(props: {
   item: Task;
@@ -22,6 +21,8 @@ export default function StartButton(props: {
         };
         dispatch(updateTaskStatus(obj));
       }}
-    >Start task</Button>
+    >
+      Start task
+    </Button>
   );
 }

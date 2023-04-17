@@ -1,0 +1,18 @@
+.side-container{
+    margin: 1rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 30%;
+    border-radius: 12px/ 8px;
+    gap: 1.5rem;
+    background-color: white;
+}
+
+.task-statistics{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

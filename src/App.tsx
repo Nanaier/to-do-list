@@ -1,10 +1,7 @@
-
-import Main from './pages/Main';
+import Main from "./components/pages/Main";
 
 function App() {
-  return (
-    <> <Main></Main> </>
-  );
+  return <Main></Main>;
 }
 
 export default App;
