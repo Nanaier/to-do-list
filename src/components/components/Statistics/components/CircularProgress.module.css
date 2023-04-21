@@ -1,0 +1,29 @@
+.circularProgressWrapper {
+    position: relative;
+    display: inline-flex;
+  }
+  
+  .circularProgress {
+    color: #6e00b6;
+  }
+  
+  .labelWrapper {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .label {
+    font-weight: bold;
+  }
+
+  @media only screen and (max-width: 665px) {
+    .circularProgress{
+      width: 100px !important;
+      height: 100px !important;
+    }}

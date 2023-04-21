@@ -1,28 +1,64 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import { Task } from "../../types/Task";
+import LOCAL_STORAGE_KEYS from "../../types/local-storage-keys";
 
-const initialState: Task[] = localStorage.getItem("tasks")
-  ? JSON.parse(localStorage.getItem("tasks")!)
+interface TasksState {
+  tasks: Task[];
+  plannedList: Task[];
+  inProgressList: Task[];
+  completedList: Task[];
+}
+
+const tasksFromLocalStorage = localStorage.getItem(LOCAL_STORAGE_KEYS.Tasks)
+  ? JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEYS.Tasks)!)
   : [];
+
+const initialState: TasksState = {
+  tasks: tasksFromLocalStorage,
+  plannedList: tasksFromLocalStorage.filter((item: Task) => item.status === "planned"),
+  inProgressList: tasksFromLocalStorage.filter((item: Task) => item.status === "in-progress"),
+  completedList: tasksFromLocalStorage.filter((item: Task) => item.status === "completed"),
+};
+
 
 const tasksSlice = createSlice({
   name: "tasksSlice",
   initialState,
   reducers: {
     addToTasks: (state, action: PayloadAction<Task>) => {
-      localStorage.setItem("tasks", JSON.stringify([...state, action.payload]));
-      return [...state, action.payload];
+      const updatedTasks = [...state.tasks, action.payload];
+      localStorage.setItem(LOCAL_STORAGE_KEYS.Tasks, JSON.stringify(updatedTasks));
+      return {
+        ...state,
+        tasks: updatedTasks,
+        plannedList: updatedTasks.filter((item) => item.status === "planned"),
+        inProgressList: updatedTasks.filter((item) => item.status === "in-progress"),
+        completedList: updatedTasks.filter((item) => item.status === "completed"),
+      };
     },
     deleteTask: (state, action: PayloadAction<number>) => {
-      state = state.filter((item) => item.id !== action.payload);
-      localStorage.setItem("tasks", JSON.stringify([...state, action.payload]));
-      return state;
+      const updatedTasks = state.tasks.filter((item) => item.id !== action.payload);
+      localStorage.setItem(LOCAL_STORAGE_KEYS.Tasks, JSON.stringify(updatedTasks));
+      return {
+        ...state,
+        tasks: updatedTasks,
+        plannedList: updatedTasks.filter((item) => item.status === "planned"),
+        inProgressList: updatedTasks.filter((item) => item.status === "in-progress"),
+        completedList: updatedTasks.filter((item) => item.status === "completed"),
+      };
     },
     updateTaskStatus: (state, action: PayloadAction<Task>) => {
-      state = state.filter((item) => item.id !== action.payload.id);
-      localStorage.setItem("tasks", JSON.stringify([...state, action.payload]));
-      return [...state, action.payload];
+      const updatedTasks = state.tasks.filter((item) => item.id !== action.payload.id);
+      const updatedTaskList = [...updatedTasks, action.payload];
+      localStorage.setItem(LOCAL_STORAGE_KEYS.Tasks, JSON.stringify(updatedTaskList));
+      return {
+        ...state,
+        tasks: updatedTaskList,
+        plannedList: updatedTaskList.filter((item) => item.status === "planned"),
+        inProgressList: updatedTaskList.filter((item) => item.status === "in-progress"),
+        completedList: updatedTaskList.filter((item) => item.status === "completed"),
+      };
     },
   },
 });

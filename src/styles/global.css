@@ -16,20 +16,6 @@ html, body {
   background: #E6E6FA;
 }
 
-@media only screen and (max-width: 665px) {
-  .MainPage-body{
-      flex-direction: column-reverse;
-      width: 100%;
-  }
-  .side-container{
-      flex-direction: row;
-      width: auto;
-  }
-  .circularProgress{
-      width: 100px !important;
-      height: 100px !important;
-  }
-  .main-container{
-      width: auto;
-  }
-    }
+
+
+

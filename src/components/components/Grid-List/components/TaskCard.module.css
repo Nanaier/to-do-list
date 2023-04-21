@@ -1,0 +1,33 @@
+.card {
+    min-width: 80px;
+  }
+  
+  .buttonContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+  }
+  
+  .button {
+    align-self: flex-end;
+  }
+  
+  .taskContent {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .taskDetails {
+    padding: 1rem;
+  }
+  
+  .title {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .description {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    word-break: break-word;
+  }

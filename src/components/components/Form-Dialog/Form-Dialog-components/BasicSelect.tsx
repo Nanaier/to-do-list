@@ -1,22 +1,29 @@
-import * as React from "react";
+import { Dispatch } from "react";
 import Box from "@mui/material/Box";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 
-import { Status } from "../../../../types/Task";
+import { Status } from "D:/test-task/task1/todo-list/src/types/Task";
+import styles from "./BasicSelect.module.css";
 
-export default function BasicSelect(props: {
+const BasicSelect = (props: {
   status: Status;
-  setStatus: React.Dispatch<React.SetStateAction<Status>>;
-}) {
+  setStatus: Dispatch<React.SetStateAction<Status>>;
+}) => {
   const handleChange = (event: SelectChangeEvent) => {
     props.setStatus(event.target.value as Status);
   };
 
+  const statusValues: [string, Status][] = [
+    ["Planned", "planned"],
+    ["In Progress", "in-progress"],
+    ["Completed", "completed"],
+  ];
+
   return (
-    <Box sx={{ minWidth: 180 }}>
+    <Box className={styles["box"]}>
       <FormControl fullWidth>
         <InputLabel id="simple-select">Status</InputLabel>
         <Select
@@ -26,11 +33,14 @@ export default function BasicSelect(props: {
           label="Status"
           onChange={handleChange}
         >
-          <MenuItem value={"planned"}>Planned</MenuItem>
-          <MenuItem value={"in-progress"}>In Progress</MenuItem>
-          <MenuItem value={"completed"}>Completed</MenuItem>
+          {statusValues.map(([label, value]) => (
+            <MenuItem key={value} value={value}>
+              {label}
+            </MenuItem>
+          ))}
         </Select>
       </FormControl>
     </Box>
   );
-}
+};
+export default BasicSelect;

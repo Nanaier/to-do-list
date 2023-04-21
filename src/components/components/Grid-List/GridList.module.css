@@ -1,0 +1,8 @@
+.title {
+    padding: 1rem;
+}
+  
+.gridContainer {
+    display: flex;
+    flex-direction: column-reverse;
+}

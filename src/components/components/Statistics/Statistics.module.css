@@ -16,3 +16,11 @@
     flex-direction: column;
     align-items: center;
 }
+
+@media only screen and (max-width: 665px) {
+    .side-container{
+      flex-direction: row;
+      width: auto;
+    }
+  
+      }
