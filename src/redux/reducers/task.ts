@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-import { Task } from "../../types/Task";
-import LOCAL_STORAGE_KEYS from "../../types/local-storage-keys";
+import { Task } from "src/types/Task";
+import LOCAL_STORAGE_KEYS from "src/types/local-storage-keys";
 
 interface TasksState {
   tasks: Task[];

@@ -9,12 +9,12 @@ import Input from "@mui/material/Input";
 import Box from "@mui/material/Box";
 
 import styles from "./FormDialog.module.css";
-import { Task, Status } from "D:/test-task/task1/todo-list/src/types/Task";
+import { Task, Status } from "src/types/Task";
 import {
   useAppDispatch,
   useAppSelector,
-} from "D:/test-task/task1/todo-list/src/hooks";
-import { addToTasks } from "D:/test-task/task1/todo-list/src/redux/reducers/task";
+} from "src/hooks";
+import { addToTasks } from "src/redux/reducers/task";
 import BasicSelect from "./Form-Dialog-components/BasicSelect";
 
 const FormDialog = () => {

@@ -1,10 +1,9 @@
 import Button from "@mui/material/Button";
-
-import { Status, Task } from "D:/test-task/task1/todo-list/src/types/Task";
-import { updateTaskStatus } from "D:/test-task/task1/todo-list/src/redux/reducers/task";
-import { useAppDispatch } from "D:/test-task/task1/todo-list/src/hooks";
 import Box from "@mui/material/Box";
 
+import { Status, Task } from "src/types/Task";
+import { updateTaskStatus } from "src/redux/reducers/task";
+import { useAppDispatch } from "src/hooks";
 import styles from "./StartButton.module.css";
 
 const AddStartButton = (

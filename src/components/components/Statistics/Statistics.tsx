@@ -4,8 +4,8 @@ import { Box } from "@mui/material";
 import styles from "./Statistics.module.css";
 import CircularProgressWithLabel from "./components/CircularProgress";
 import StatisticsCard from "./components/StatisticsCard";
-import calculatePercentage from "D:/test-task/task1/todo-list/src/utils/statistics";
-import { useAppSelector } from "D:/test-task/task1/todo-list/src/hooks";
+import calculatePercentage from "src/utils/statistics";
+import { useAppSelector } from "src/hooks";
 
 const Statistics = () => {
   const plannedList = useAppSelector((state) => state.tasksReducer.plannedList);

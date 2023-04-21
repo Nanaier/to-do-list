@@ -4,7 +4,7 @@ import Typography from "@mui/material/Typography";
 
 import styles from "./GridList.module.css";
 import TaskCard from "./components/TaskCard";
-import { Status, Task } from "D:/test-task/task1/todo-list/src/types/Task";
+import { Status, Task } from "src/types/Task";
 
 const DISPLAY_TASKS_NUMBER = -3;
 

@@ -6,9 +6,9 @@ import Typography from "@mui/material/Typography";
 import ClearIcon from "@mui/icons-material/Clear";
 
 import styles from "./TaskCard.module.css";
-import { useAppDispatch } from "D:/test-task/task1/todo-list/src/hooks";
-import { deleteTask } from "D:/test-task/task1/todo-list/src/redux/reducers/task";
-import { Status, Task } from "D:/test-task/task1/todo-list/src/types/Task";
+import { useAppDispatch } from "src/hooks";
+import { deleteTask } from "src/redux/reducers/task";
+import { Status, Task } from "src/types/Task";
 import ControlledCheckbox from "./components/CheckBox";
 import AddStartButton from "./components/StartButton";
 
